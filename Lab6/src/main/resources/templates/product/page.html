@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phân trang</title>
+</head>
+<body>
+<h3>PHÂN TRANG</h3>
+<table border="1" style="width:100%">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Date</th>
+    </tr>
+    <th:block th:each="item: ${page.content}">
+        <tr>
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.price}"></td>
+            <td th:text="${item.createDate}"></td>
+        </tr>
+    </th:block>
+</table>
+<a th:href="@{/product/page(p=0)}">First</a>
+<a th:href="@{/product/page(p=${page.number - 1})}">Previous</a>
+<a th:href="@{/product/page(p=${page.number + 1})}">Next..</a>
+<a th:href="@{/product/page(p=${page.totalPages - 1})}">Last</a>
+<ul>
+    <li>Số thực thể hiện tại: <span th:text="${page.numberOfElements}"></span></li>
+    <li>Trang số: <span th:text="${page.number}"></span></li>
+    <li>Kích thước trang: <span th:text="${page.size}"></span></li>
+    <li>Tổng số thực thể: <span th:text="${page.totalElements}"></span></li>
+    <li>Tổng số trang: <span th:text="${page.totalPages}"></span></li>
+</ul>
+
+</body>
+</html>

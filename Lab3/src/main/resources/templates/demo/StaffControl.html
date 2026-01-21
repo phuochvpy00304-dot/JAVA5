@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 5</title>
+</head>
+<body>
+    <h3>Fill to SelectBox</h3>
+    <select name="cbo">
+        <th:block th:each="staff: ${list}">
+          <option th:value="${staff.id}" th:text="${staff.fullname}"></option>
+        </th:block>
+    </select>
+
+    <h3>Create Radio Button Group</h3>
+    <th:block th:each="staff: ${list}">
+        <label>
+            <input type="radio" name="rdo" th:value="${staff.id}">
+            <th:block th:text="${staff.fullname}"></th:block>
+        </label>
+        <br>
+    </th:block>
+
+<!--    <label>-->
+<!--      <input type="radio" name="rdo" value="user1@gmail.com">-->
+<!--      nguyễn văn user1-->
+<!--    </label>-->
+<!--    <br>-->
+<!--    <label>-->
+<!--      <input type="radio" name="rdo" value="user2@gmail.com">-->
+<!--      nguyễn văn user2-->
+<!--    </label>-->
+<!--    <br>-->
+<!--    <label>-->
+<!--      <input type="radio" name="rdo" value="user3@gmail.com">-->
+<!--      nguyễn văn user3-->
+<!--    </label>-->
+<!--    <br>-->
+<!--    <label>-->
+<!--      <input type="radio" name="rdo" value="user4@gmail.com">-->
+<!--      nguyễn văn user4-->
+<!--    </label>-->
+<!--    <br>-->
+<!--    <label>-->
+<!--      <input type="radio" name="rdo" value="user5@gmail.com">-->
+<!--      nguyễn văn user5-->
+<!--    </label>-->
+<!--    <br>-->
+<!--    <label>-->
+<!--      <input type="radio" name="rdo" value="user6@gmail.com">-->
+<!--      nguyễn văn user6-->
+<!--    </label>-->
+</body>
+</html>

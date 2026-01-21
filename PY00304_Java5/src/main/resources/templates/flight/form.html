@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"><body>
+<th:block th:fragment="form">
+    <!--/*@thymesVar id="item" type="web.entity.Flight"*/-->
+    <form th:object="${item}" method="post">
+        <h3>Form</h3>
+
+        <label>FlightID</label>
+        <input th:field="*{flightId}" placeholder="Integer" type="number">
+        <small style="color:red" th:errors="*{flightId}"></small> <br>
+
+        <label>Airline</label>
+        <input th:field="*{airline}"> <br>
+
+        <label>Departure City</label>
+        <input th:field="*{departureCity}"> <br>
+
+        <label>Arrival City</label>
+        <input th:field="*{arrivalCity}"><br>
+
+        <label>Departure Time</label>
+        <input type="datetime-local" th:field="*{departureTime}"><br>
+
+        <label>Arrival Time</label>
+        <input type="datetime-local" th:field="*{arrivalTime}">
+
+        <div >
+            <button formaction="/flights/create">Create</button>
+            <button formaction="/flights/update">Update</button>
+            <button formaction="/flights/deletes">Delete</button>
+            <a th:href="@{/flights}">Reset</a>
+        </div>
+    </form>
+</th:block>
+</body></html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD MANAGEMENT</title>
+</head>
+<body>
+<p th:if="${currentUser}">
+    Xin chào, <b th:text="${currentUser}"></b> |
+    <a th:href="@{/logout}">Logout</a>
+</p>
+    <h2>User Management - CRUD</h2>
+
+    <form th:action="@{/users}" method="get">
+        <input name="q" th:value="${q}" placeholder="ID or Name" type="text">
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    <th:block th:replace="~{user/form :: form}"></th:block>
+    <th:block th:replace="~{user/table :: table}"></th:block>
+
+</body>
+</html>

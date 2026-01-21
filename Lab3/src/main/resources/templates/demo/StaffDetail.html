@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<div>
+    <img th:src="@{/photos/{f}(f=${staff.photo})}" style="height:300px">
+    <hr>
+    Email: <b th:text="${staff.id}"></b>
+    <hr>
+    Họ và tên: <b th:text="${#strings.capitalizeWords(staff.fullname)}"></b>
+    <hr>
+    Giới tính: <b th:text="${staff.gender ? 'Nam': 'Nữ'}"></b>
+    <hr>
+    Ngày sinh: <b th:text="${#dates.format(staff.birthday, 'dd-MM-yyyy')}"></b>
+    <hr>
+    Cấp bậc:
+    <th:block th:switch="${staff.level}">
+        <b th:case="0">úy</b>
+        <b th:case="1">Tá</b>
+        <b th:case="2">Tướng</b>
+        <b th:case="3">Chưa có</b>
+    </th:block>
+    <hr>
+    Salary:
+    $<b th:text="${#numbers.formatDecimal(staff.salary, 0, 'COMMA', 2, 'POINT')}"></b>
+    <hr>
+    <!-- #numbers.formatDecimal: định dạng số lương -->
+    <!-- Tham số: giá trị, min int digits=0, dùng COMMA làm dấu ngăn cách phần nghìn,
+    2 chữ số thập phân, dùng POINT cho thập phân -->
+
+</div>
+</body>
+</html>

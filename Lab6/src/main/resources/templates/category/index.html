@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Management</title>
+</head>
+<body>
+<h3>CATEGORY MANAGEMENT</h3>
+<p th:if="${error}" th:text="${error}" style="color:red"></p>
+<th:block th:replace="~{category/form :: form}"></th:block>
+<hr>
+<th:block th:replace="~{category/table :: table}"></th:block>
+</body>
+</html>

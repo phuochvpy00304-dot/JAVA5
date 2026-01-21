@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><title>Login</title>
+</head>
+<body>
+<div class="card">
+    <h3>Đăng nhập</h3>
+
+    <!-- hiện lỗi nếu có -->
+    <p class="err" th:if="${error}" th:text="${error}"></p>
+
+    <form method="post" th:action="@{/login}">
+        <input name="username" placeholder="User ID (vd: admin)">
+        <input name="password" type="password" placeholder="Mật khẩu (vd: 123456)">
+        <button class="btn" type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Gửi Email (Bài 3)</title>
+
+</head>
+<body>
+<h2>Form gửi Email – Lab 8 / Bài 3</h2>
+
+<p th:if="${message}" class="msg" th:text="${message}">Kết quả hiển thị ở đây</p>
+
+<form th:object="${mailForm}" method="post" enctype="multipart/form-data">
+  <div class="row">
+    <div>
+      <label>From</label>
+      <input type="email" th:field="*{from}" placeholder="WebShop <you@gmail.com> (để trống dùng default)">
+    </div>
+    <div>
+      <label>To *</label>
+      <input type="email" th:field="*{to}" placeholder="receiver@gmail.com" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label>CC</label>
+      <input type="text" th:field="*{cc}" placeholder="cc@example.com (tùy chọn)">
+    </div>
+    <div>
+      <label>BCC</label>
+      <input type="text" th:field="*{bcc}" placeholder="bcc@example.com (tùy chọn)">
+    </div>
+  </div>
+
+  <label>Subject</label>
+  <input type="text" th:field="*{subject}" placeholder="Tiêu đề email"><br>
+
+  <label>Body (hỗ trợ HTML)</label>
+  <textarea th:field="*{body}" rows="3" placeholder="Bạn có thể dùng <b>HTML</b> ở đây"></textarea> <br>
+
+  <label>Attachments (có thể chọn nhiều)</label>
+  <input type="file" th:field="*{attachments}" multiple>
+  <p class="note">Các file sẽ được lưu vào thư mục <code>/uploads</code> và tự đính kèm khi gửi.</p>
+
+  <div class="actions">
+    <button formaction="/mail/send-now"   formmethod="post">Gửi trực tiếp</button>
+    <button formaction="/mail/send-queue" formmethod="post">Xếp vào hàng đợi</button>
+    <a href="/mail/form" style="margin-left:auto">Reset form</a>
+  </div>
+</form>
+
+</body>
+</html>

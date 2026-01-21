@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flights CRUD</title>
+
+</head>
+<body>
+
+<h2>CRUD</h2>
+
+<form th:action="@{/flights}" method="get" style="margin-bottom:12px">
+    <input name="q" th:value="${q}" placeholder="Search by Airline">
+    <button type="submit">Search</button>
+    <a th:href="@{/flights}">Reset</a>
+</form>
+
+<div>
+    <th:block th:replace="~{flight/form :: form}"></th:block>
+    <th:block th:replace="~{flight/table :: table}"></th:block>
+</div>
+
+</body>
+</html>

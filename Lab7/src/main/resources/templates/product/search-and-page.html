@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search & Page</title>
+</head>
+<body>
+<h3>SEARCH & PAGE</h3>
+
+<!-- Form tìm kiếm; method=post theo slide. Có thể dùng get nếu bạn thích URL có query -->
+<form action="/product/search-and-page" method="post">
+    <input name="keywords" th:value="${keywords}" placeholder="Keyword?">
+    <button>Search</button>
+</form>
+
+<hr>
+<table border="1" style="width:100%">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Date</th>
+    </tr>
+
+    <!-- Lặp qua nội dung của Page -->
+    <th:block th:each="item : ${page.content}">
+        <tr>
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.price}"></td>
+            <td th:text="${#dates.format(item.createDate,'yyyy-MM-dd')}"></td>
+        </tr>
+    </th:block>
+</table>
+
+<a th:href="@{/product/search-and-page(p=0, keywords=${keywords})}">First</a>
+<a th:href="@{/product/search-and-page(p=${page.first} ? 0 : ${page.number - 1}, keywords=${keywords})}">Previous</a>
+<a th:href="@{/product/search-and-page(p=${page.last} ? ${page.totalPages - 1} : ${page.number + 1} , keywords=${keywords})}">Next</a>
+<a th:href="@{/product/search-and-page(p=${page.totalPages - 1}, keywords=${keywords})}">Last</a>
+
+<ul>
+    <li>Số thực thể hiện tại: <span th:text="${page.numberOfElements}"></span></li>
+    <li>Trang số: <span th:text="${page.number}"></span></li>
+    <li>Kích thước trang: <span th:text="${page.size}"></span></li>
+    <li>Tổng số thực thể: <span th:text="${page.totalElements}"></span></li>
+    <li>Tổng số trang: <span th:text="${page.totalPages}"></span></li>
+</ul>
+
+</body>
+</html>

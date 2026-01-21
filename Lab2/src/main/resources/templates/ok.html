@@ -1,0 +1,23 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Bài 1 - OK Form</title>
+</head>
+<body>
+<h3>Bài 1: 1 form → 3 cách gửi khác nhau</h3>
+
+<form action="/ctrl/ok" method="post">
+    <button>OK 1</button> // Post
+
+    <button formmethod="get">OK 2</button> //Get
+
+    <button formaction="/ctrl/ok?x">OK 3</button> //Post
+</form>
+
+<hr>
+
+<!-- Hiển thị kết quả method nào đã được gọi; nếu chưa bấm thì hiện 'Chưa bấm' -->
+<p>Kết quả: <b th:text="${method} ?: 'Chưa bấm'"></b></p>
+</body>
+</html>

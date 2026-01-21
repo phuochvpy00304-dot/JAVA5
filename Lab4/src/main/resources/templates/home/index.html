@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/shared/layout::view(~{::title}, ~{::article})}">
+
+<head>
+  <title th:text="#{title.home}">Home</title>
+</head>
+
+<body>
+<article>
+  <h1>Trang chủ</h1>
+  <img src="/photos/photo.jpg" alt="photo" style="max-width:320px">
+</article>
+</body>
+</html>

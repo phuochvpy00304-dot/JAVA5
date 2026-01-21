@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài thêm</title>
+</head>
+<body>
+
+<table border="1" style="width: 100%">
+    <thead>
+    <tr>
+        <th rowspan="2">HỌ VÀ TÊN</th>
+        <th colspan="7">CÁC THUỘC TÍNH TRẠNG THÁI</th>
+    </tr>
+    <tr>
+        <th>Index</th>
+        <th>Count</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Even</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <th:block th:each="staff, st : ${list}" >
+        <tr>
+            <td th:text="${staff.fullname}"></td>
+            <td th:text="${st.index}"></td>
+            <td th:text="${st.count}"></td>
+            <td th:text="${st.first}"></td>
+            <td th:text="${st.last}"></td>
+            <td th:text="${st.odd}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+<hr>
+<select>
+    <th:block th:each="staff : ${list}">
+        <option th:text="${staff.fullname}"></option>
+    </th:block>
+</select>
+<hr>
+<th:block th:each="staff: ${list}">
+<label>
+        <input type="radio" name="rdo">
+        <th:block th:text="${staff.fullname}"></th:block>
+</label>
+    <br>
+</th:block>
+</body>
+</html>

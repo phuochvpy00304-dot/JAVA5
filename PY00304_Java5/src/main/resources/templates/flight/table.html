@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"><body>
+<th:block th:fragment="table">
+    <h3>List</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th><th>Airline</th><th>From</th><th>To</th><th>Depart</th><th>Arrive</th><th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="f : ${items}">
+            <td th:text="${f.flightId}"></td>
+            <td th:text="${f.airline}"></td>
+            <td th:text="${f.departureCity}"></td>
+            <td th:text="${f.arrivalCity}"></td>
+            <td th:text="${#temporals.format(f.departureTime,'yyyy-MM-dd HH:mm')}"></td>
+            <td th:text="${#temporals.format(f.arrivalTime,'yyyy-MM-dd HH:mm')}"></td>
+            <td>
+                <a th:href="@{'/flights/edit/' + ${f.flightId}}">Edit</a> |
+                <a th:href="@{'/flights/delete/' + ${f.flightId}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+</body></html>

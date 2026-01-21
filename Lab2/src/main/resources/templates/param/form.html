@@ -1,0 +1,21 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Bài 2</title></head>
+<body>
+<h3>Bài 2: @PathVariable và @RequestParam</h3>
+
+<!-- Form gửi POST tới /param/save/2021 -->
+<form action="/param/save/2021" method="post">
+
+  <input name="y" th:value="2031">   <!-- Đây là tham số y -->
+  <button>Save</button>
+</form>
+
+<ul>
+  <li>x = <span th:text="${x} ?: 'chưa có'"></span></li>
+  <li>y = <span th:text="${y} ?: 'chưa có'"></span></li>
+</ul>
+
+  <p><a href="/param/form">Về form</a></p>
+</body>
+</html>

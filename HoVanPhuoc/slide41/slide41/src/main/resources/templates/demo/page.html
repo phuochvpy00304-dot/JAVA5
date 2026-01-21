@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="~{/demo/frags.html::frag1}"></div>
+<div th:insert="~{demo/frags}"></div>
+<hr>
+<div th:replace="~{/demo/frags}"></div>
+<hr>
+<div th:replace="~{/demo/page::frag3"></div>
+<div th:replace="~{::frag3}"></div>
+<template th:remove ="all">
+    <h3 th:fragment ="frag3"> Fragment 3</h3>
+</template>
+<div th:replace=~{/demo/frags::frag(~{::.my~title},~{::main})}"> <h4 class="my-title">Page Title</h4>
+</div>
+</body>
+</html>

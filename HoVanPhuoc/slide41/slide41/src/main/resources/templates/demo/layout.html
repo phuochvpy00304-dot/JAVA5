@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<html th:fragment="view(title, content)">
+<head>
+    <title th:replace="${title}">TITLE</title>
+</head>
+<body>
+
+<header>
+    <h1>FPT Polytechnic</h1>
+</header>
+
+<nav th:replace="~{/demo/menu}">MENU</nav>
+
+<article th:replace="${content}">
+    CONTENT
+</article>
+
+<footer>
+    <hr>
+    &copy; 2024. All rights reserved.
+</footer>
+
+</body>
+</html>
+
+</body>
+</html>

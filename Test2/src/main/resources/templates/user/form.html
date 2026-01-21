@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<th:block th:fragment="form">
+    <form th:object="${item}" method="post">
+        User ID: <input th:field="*{id}" placeholder="UserID (PK)"> <br>
+        <small th:errors="*{id}" style="color: red"></small> <br>
+        Password: <input th:field="*{password}" placeholder="Password" type="password"><br>
+        Fullname: <input th:field="*{fullname}" placeholder="Full name"><br>
+        Email:<input th:field="*{email}" placeholder="Email"><br>
+        <label><input type="checkbox" th:field="*{admin}"> Admin</label><br>
+
+        <button class="btn btn-blue" formaction="/users/create">Create</button>
+        <button class="btn btn-amber" formaction="/users/update">Update</button>
+        <a class="btn btn-gray" th:href="@{/users/reset}">Reset</a>
+    </form>
+</th:block>
+</body>
+</html>

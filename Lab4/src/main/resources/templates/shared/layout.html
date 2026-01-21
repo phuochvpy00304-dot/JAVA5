@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="view(title, content)"><!-- layout(view) nhận 2 tham số: title, content -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Nhúng <title> từ trang con (index/about) -->
+    <title th:replace="${title}">TITLE</title>
+    <style>
+        body{font-family:Arial, sans-serif}
+        header{font-size:28px; font-weight:700; padding:8px; border-bottom:1px solid #ccc}
+        nav{padding:6px 0; border-bottom:1px solid #eee}
+        article{min-height:220px; padding:10px 0}
+        footer{border-top:1px solid #eee; color:#444; font-size:12px; padding:6px 0}
+        .lang{position:fixed; top:6px; right:10px; font-size:14px}
+    </style>
+</head>
+
+<body>
+<header>
+    <span th:text="#{header.name}">Online Shopping</span>
+    <span class="lang">
+    <a href="?lang=vi">Tiếng Việt</a> | <a href="?lang=en">English</a>
+  </span>
+</header>
+
+<!-- HIỂN THỊ menu.home & menu.about trong file menu.html -->
+<nav th:replace="~{/shared/menu}">MENU</nav>
+
+<!-- Nội dung trang con -->
+<article th:replace="${content}">CONTENT</article>
+
+<footer>
+    <hr>
+    <th:block th:utext="#{footer.copy}">&copy; 2024 ...</th:block>
+</footer>
+</body>
+</html>

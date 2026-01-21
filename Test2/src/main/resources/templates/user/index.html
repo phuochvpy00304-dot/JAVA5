@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD</title>
+</head>
+<body>
+    <h2>CRUD - MANAGEMENT</h2>
+    <form th:action="@{/users}" method="get">
+        <input name="q" th:value="${q}" placeholder="ID or Name" type="text">
+        <button type="submit">Search</button>
+    </form>
+
+    <th:block th:replace="~{user/form :: form}"></th:block>
+    <th:block th:replace="~{user/table :: table}"></th:block>
+</body>
+</html>
